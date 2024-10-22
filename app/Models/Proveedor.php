@@ -15,7 +15,8 @@ class Proveedor extends Model
         'prov_direccion',
         'prov_telefono',
         'prov_correo',
-        'ciudad_id'
+        'ciudad_id',
+        'nacionalidad_id'
     ];
 
     protected $table = 'proveedores';

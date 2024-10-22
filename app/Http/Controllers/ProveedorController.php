@@ -11,11 +11,11 @@ class ProveedorController extends Controller
         return DB::table('proveedores')
         ->join('ciudades', 'proveedores.ciudad_id', '=', 'ciudades.id')
         ->join('nacionalidad', 'proveedores.nacionalidad_id', '=', 'nacionalidad.id')
-        ->select('proveedores.*', 'ciudades.ciu_descripcion as ciu_descripcion', 'nacionalidad.nac_descri as nac_descri')
+        ->select('proveedores.*', 'ciudades.ciudades_descripcion as ciudades_descripcion', 'nacionalidad.nacion_descri as nacion_descri')
         ->get();
     }
-    public function store(Request $request){
-        $datosValidados = $request->validate([
+    public function store(Request $r){
+        $datosValidados = $r->validate([
             'prov_razonsocial'=> 'required',
             'prov_ruc'=> 'required',
             'prov_direccion'=> 'required',
