@@ -13,13 +13,15 @@ class ItemController extends Controller
         return DB::select("select i.*, t.tipo_descripcion from items i join tipos t on t.id = i.tipo_id");
     }
     //Método para almacenar un nuevo registro de item
-    public function store(Request $request){
+    public function store(Request $r){
         //Validación de datos del formulario
-        $datosvalidados = $request->validate([
+        $datosvalidados = $r->validate([
             'item_descripcion'=> 'required',
             'item_costo'=> 'required',
             'item_precio'=> 'required',
-            'tipo_id'=> 'required'
+            'tipo_id'=> 'required',
+            'marca_id'=> 'required',
+            'tipo_impuesto_id' => 'required'
         ]);
         //Crear una nueva instancia de Item con los datos validados
         $item = Item::create($datosvalidados);
@@ -51,7 +53,9 @@ class ItemController extends Controller
                 'item_descripcion'=> 'required',
                 'item_costo'=> 'required',
                 'item_precio'=> 'required',
-                'tipo_id'=> 'required'
+                'tipo_id'=> 'required',
+                'marca_id'=> 'required',
+                'tipo_impuesto_id' => 'required'
             ]);
             //Actualizar los datos del item con los datos validados
             $item -> update($datosvalidados);

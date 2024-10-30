@@ -15,7 +15,7 @@ class Cliente extends Model
         'cliente_ruc',
         'cliente_direc',
         'cliente_telefono',
-        'cliente_email',
+        'cliente_email'
 
     ];
 

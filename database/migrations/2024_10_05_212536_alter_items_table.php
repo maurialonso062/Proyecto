@@ -12,19 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->unsignedInteger("marca_id")->nullable(); 
+            $table->unsignedBigInteger("marca_id")->nullable(); 
             $table->foreign("marca_id")->
             references("id")->
             on("marca")->
             onDelete("restrict")->
             onUpdate("cascade");
 
-            $table->unsignedBigInteger('tipo_impuesto_id')->nullable();
-            $table->foreign('tipo_impuesto_id')
-                ->references('id')
-                ->on('tipo_impuesto')
-                ->onDelete('restrict')
-                ->onUpdate('cascade');
         });
     }
 

@@ -13,6 +13,7 @@ class Item extends Model
         'item_descripcion',
         'item_costo',
         'item_precio',
-        'tipo_id'
+        'tipo_id',
+        'marca_id'
     ];
 }

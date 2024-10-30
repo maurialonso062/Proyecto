@@ -13,6 +13,9 @@ class Pedido extends Model
         'pedido_vence',
         'pedido_observaciones',
         'pedido_estado',
-        'user_id'
+        'user_id',
+        'pedido_fecha_aprob',
+        'empresa_id',
+        'sucursal_id'
     ];
 }

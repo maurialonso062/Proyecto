@@ -17,6 +17,9 @@ class PedidoController extends Controller
         p.user_id,
         p.created_at,
         p.updated_at,
+        p.pedido_fecha_aprob,
+        p.empresa_id,
+        p.sucursal_id,
         u.name,
         u.login
         from pedidos p join users u on u.id = p.user_id;");
@@ -26,7 +29,10 @@ class PedidoController extends Controller
             'pedido_vence'=> 'required',
             'pedido_observaciones'=> 'required',
             'pedido_estado'=> 'required',
-            'user_id'=> 'required'
+            'user_id'=> 'required',
+            'pedido_fecha_aprob'=> 'required',
+            'empresa_id'=> 'required',
+            'sucursal_id'=> 'required'
         ]);
         $pedido = Pedido::create($datosvalidados);
 
@@ -50,7 +56,10 @@ class PedidoController extends Controller
             'pedido_vence'=> 'required',
             'pedido_observaciones'=> 'required',
             'pedido_estado'=> 'required',
-            'user_id'=> 'required'
+            'user_id'=> 'required',
+            'pedido_fecha_aprob'=> 'required',
+            'empresa_id'=> 'required',
+            'sucursal_id'=> 'required'
         ]);
         $pedido -> update($datosvalidados);
         return response()->json([
@@ -88,7 +97,10 @@ class PedidoController extends Controller
             'pedido_vence'=> 'required',
             'pedido_observaciones'=> 'required',
             'pedido_estado'=> 'required',
-            'user_id'=> 'required'
+            'user_id'=> 'required',
+            'pedido_fecha_aprob'=> 'required',
+            'empresa_id'=> 'required',
+            'sucursal_id'=> 'required'
         ]);
         
         $pedido -> update($datosvalidados);
@@ -114,7 +126,10 @@ class PedidoController extends Controller
             'pedido_vence'=> 'required',
             'pedido_observaciones'=> 'required',
             'pedido_estado'=> 'required',
-            'user_id'=> 'required'
+            'user_id'=> 'required',
+            'pedido_fecha_aprob'=> 'required',
+            'empresa_id'=> 'required',
+            'sucursal_id'=> 'required'
         ]);
 
         $pedido -> update($datosvalidados);

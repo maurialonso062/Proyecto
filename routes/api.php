@@ -15,6 +15,8 @@ use App\Http\Controllers\ItemMarcaController;
 use App\Http\Controllers\TipoImpuestoController;
 use App\Http\Controllers\NacionalidadController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EmpresaController;
+
 
 use App\Http\Controllers\AuthController;
 
@@ -119,6 +121,10 @@ Route::put("cliente/update/{id}",[ClienteController::class,"update"]);
 Route::delete("cliente/delete/{id}",[ClienteController::class,"destroy"]);
 Route::post("cliente/buscar",[ClienteController::class,"buscar"]);
 
+Route::get("empresa/read",[EmpresaController::class,"index"]);
+Route::post("empresa/create",[EmpresaController::class,"store"]);
+Route::put("empresa/update/{id}",[EmpresaController::class,"update"]);
+Route::delete("empresa/delete/{id}",[EmpresaController::class,"destroy"]);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
