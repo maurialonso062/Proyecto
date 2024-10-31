@@ -16,6 +16,7 @@ use App\Http\Controllers\TipoImpuestoController;
 use App\Http\Controllers\NacionalidadController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\SucursalController;
 
 
 use App\Http\Controllers\AuthController;
@@ -125,7 +126,13 @@ Route::get("empresa/read",[EmpresaController::class,"index"]);
 Route::post("empresa/create",[EmpresaController::class,"store"]);
 Route::put("empresa/update/{id}",[EmpresaController::class,"update"]);
 Route::delete("empresa/delete/{id}",[EmpresaController::class,"destroy"]);
+Route::post("empresa/buscar",[EmpresaController::class,"buscar"]);
 
+Route::get("sucursal/read",[SucursalController::class,"index"]);
+Route::post("sucursal/create",[SucursalController::class,"store"]);
+Route::put("sucursal/update/{id}",[SucursalController::class,"update"]);
+Route::delete("sucursal/delete/{id}",[SucursalController::class,"destroy"]);
+Route::post("sucursal/buscar",[SucursalController::class,"buscar"]);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

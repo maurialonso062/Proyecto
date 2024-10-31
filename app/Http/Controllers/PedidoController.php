@@ -9,20 +9,30 @@ use DB;
 class PedidoController extends Controller
 {
     public function index(){
-        return DB::select("select
-        p.id,
-        to_char(p.pedido_vence, 'dd/mm/yyyy HH24:mi:ss') as pedido_vence, 
-        p.pedido_observaciones,
-        p.pedido_estado, 
-        p.user_id,
-        p.created_at,
-        p.updated_at,
-        p.pedido_fecha_aprob,
-        p.empresa_id,
-        p.sucursal_id,
-        u.name,
-        u.login
-        from pedidos p join users u on u.id = p.user_id;");
+        return DB::select("SELECT
+            p.id,
+            to_char(p.pedido_vence, 'dd/mm/yyyy HH24:mi:ss') AS pedido_vence, 
+            p.pedido_observaciones,
+            p.pedido_estado, 
+            p.user_id,
+            p.created_at,
+            p.updated_at,
+            p.pedido_fecha_aprob,
+            p.empresa_id,
+            p.sucursal_id,
+            u.name,
+            u.login,
+            e.empresa_descri,  -- Añadir la descripción de la empresa
+            s.suc_descri      -- Añadir la descripción de la sucursal
+        FROM
+            pedidos p 
+        JOIN
+            users u ON u.id = p.user_id
+        JOIN
+            empresa e ON e.id = p.empresa_id  -- Unir con la tabla de empresas
+        JOIN
+            sucursal s ON s.id = p.sucursal_id;  -- Unir con la tabla de sucursales
+        ");
     }
     public function store(Request $request){
         $datosvalidados = $request->validate([
